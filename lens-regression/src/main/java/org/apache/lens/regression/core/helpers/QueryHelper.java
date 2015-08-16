@@ -24,7 +24,6 @@ import java.util.List;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
 import javax.xml.bind.JAXBException;
 
 import org.apache.lens.api.LensConf;
@@ -49,13 +48,17 @@ import lombok.extern.slf4j.Slf4j;
 public class QueryHelper extends ServiceManagerHelper {
 
   private WebTarget servLens = ServiceManagerHelper.getServerLens();
-  private String sessionHandleString = ServiceManagerHelper.getSessionHandle();
+  private String sessionHandleString;
 
   public QueryHelper() {
   }
 
   public QueryHelper(String envFileName) {
     super(envFileName);
+  }
+  public void envInit() {
+    servLens = ServiceManagerHelper.getServerLens();
+    sessionHandleString = ServiceManagerHelper.getSessionHandle();
   }
 
   /**
