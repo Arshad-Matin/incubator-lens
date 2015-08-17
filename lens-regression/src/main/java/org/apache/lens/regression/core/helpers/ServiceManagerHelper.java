@@ -163,10 +163,10 @@ public abstract class ServiceManagerHelper {
     MapBuilder query = new MapBuilder("sessionid", sessionHandleString);
     Response response = this.exec("delete", SessionURL.SESSION_BASE_URL, ServiceManagerHelper.servLens, null, query);
     APIResult result = response.readEntity(APIResult.class);
-    if (result.getStatus() == APIResult.Status.SUCCEEDED) {
+    if (result.getStatus() != APIResult.Status.SUCCEEDED) {
       throw new LensException("Status should be SUCCEEDED");
     }
-    if (response.getStatus() == 200) {
+    if (response.getStatus() != 200) {
       throw new LensException("Status code should be 200");
     }
     if (result.getMessage() == null) {
