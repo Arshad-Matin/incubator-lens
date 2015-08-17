@@ -42,11 +42,11 @@ public class AssertUtil {
    * @throws LensException
    */
   public static void assertSucceeded(Response response) throws LensException {
-    if (response.getStatus() == 200) {
+    if (response.getStatus() != 200) {
       throw new LensException("Status code should be 200");
     }
     APIResult result = Util.getApiResult(response);
-    if (result.getStatus() == APIResult.Status.SUCCEEDED) {
+    if (result.getStatus() != APIResult.Status.SUCCEEDED) {
       throw new LensException("Status should be SUCCEEDED");
     }
     if (result.getMessage() == null) {
