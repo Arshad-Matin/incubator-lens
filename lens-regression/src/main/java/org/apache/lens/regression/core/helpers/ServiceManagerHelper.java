@@ -57,8 +57,8 @@ public abstract class ServiceManagerHelper {
   private static final String LENS_SERVER_HDFS_URL = "lens.server.hdfsurl";
   private static final String LENS_CURRENT_DB = "lens.server.currentDB";
 
-  private static String sessionHandleString;
-  private static WebTarget servLens;
+  protected static String sessionHandleString;
+  protected static WebTarget servLens;
 
   protected String baseUrl;
   protected String adminUrl;

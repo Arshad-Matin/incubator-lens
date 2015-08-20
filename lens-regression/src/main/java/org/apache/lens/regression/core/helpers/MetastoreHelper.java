@@ -19,7 +19,6 @@
 
 package org.apache.lens.regression.core.helpers;
 
-import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -41,18 +40,12 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class MetastoreHelper extends ServiceManagerHelper {
 
-  private WebTarget servLens = ServiceManagerHelper.getServerLens();
-  private String sessionHandleString;
 
   public MetastoreHelper() {
   }
 
   public MetastoreHelper(String envFileName) {
     super(envFileName);
-  }
-  public void envInit() {
-    servLens = ServiceManagerHelper.getServerLens();
-    sessionHandleString = ServiceManagerHelper.getSessionHandle();
   }
 
   /**

@@ -21,7 +21,6 @@ package org.apache.lens.regression.core.helpers;
 
 import java.util.List;
 
-import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.xml.bind.JAXBException;
@@ -47,8 +46,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class QueryHelper extends ServiceManagerHelper {
 
-  private WebTarget servLens = ServiceManagerHelper.getServerLens();
-  private String sessionHandleString;
 
   public QueryHelper() {
   }
@@ -56,10 +53,7 @@ public class QueryHelper extends ServiceManagerHelper {
   public QueryHelper(String envFileName) {
     super(envFileName);
   }
-  public void envInit() {
-    servLens = ServiceManagerHelper.getServerLens();
-    sessionHandleString = ServiceManagerHelper.getSessionHandle();
-  }
+
 
   /**
    * Execute with conf
